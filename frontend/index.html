@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aegis — Phishing &amp; Scam Message Analyzer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23C1502E' d='M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7EF;
+    --paper:#FFFFFF;
+    --cream-deep:#F2E9D8;
+    --ink:#2A2019;
+    --muted:#8A7A68;
+    --line:#E7DBC3;
+    --terracotta:#C1502E;
+    --terracotta-deep:#96371D;
+    --amber:#D98C2B;
+    --forest:#4F7A5B;
+    --red:#A32B1F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Manrope',sans-serif;margin:0;}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+  a{color:var(--terracotta);}
+  section{max-width:1180px;margin:0 auto;padding:64px clamp(20px,5vw,64px);}
+  .eyebrow{
+    font-size:12.5px;font-weight:600;letter-spacing:0.6px;
+    color:var(--terracotta);text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:16px;height:2px;background:var(--terracotta);display:inline-block;}
+
+  /* ---------- nav ---------- */
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px clamp(20px,5vw,64px);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:rgba(251,247,239,0.92);backdrop-filter:blur(6px);z-index:20;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:9px;background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cream);font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;
+  }
+  .brand-name{font-family:'Manrope',sans-serif;font-weight:700;font-size:16.5px;}
+  .nav-cta{
+    background:var(--terracotta);color:#fff;border:none;
+    padding:10px 20px;border-radius:100px;font-weight:600;font-size:13.5px;
+    cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;
+  }
+
+  /* ---------- hero (dark contrast band) ---------- */
+  .hero{
+    background:var(--ink);color:var(--cream);
+    padding:80px clamp(20px,5vw,64px) 70px;
+    position:relative;overflow:hidden;
+    max-width:none;
+  }
+  .hero-inner{max-width:1180px;margin:0 auto;position:relative;z-index:2;
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center;}
+  @media (max-width:880px){.hero-inner{grid-template-columns:1fr;}}
+  .hero .eyebrow{color:var(--amber);}
+  .hero .eyebrow::before{background:var(--amber);}
+  .hero h1{font-size:clamp(30px,4.2vw,46px);line-height:1.12;font-weight:700;letter-spacing:-0.5px;margin-bottom:18px;}
+  .hero p{color:#D9CFC2;font-size:15.5px;max-width:46ch;margin-bottom:28px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--cream);color:var(--ink);border:none;
+    padding:13px 26px;border-radius:100px;font-weight:700;font-size:14.5px;
+    cursor:pointer;text-decoration:none;display:inline-block;
+  }
+  .btn-ghost{
+    background:transparent;color:var(--cream);border:1px solid rgba(251,247,239,0.35);
+    padding:13px 26px;border-radius:100px;font-weight:600;font-size:14.5px;
+    cursor:pointer;text-decoration:none;display:inline-block;
+  }
+  .squiggle{position:absolute;opacity:0.9;}
+  .hero-art{position:relative;display:flex;align-items:center;justify-content:center;}
+
+  /* ---------- hero quick actions ---------- */
+  .hero-console{
+    width:100%;max-width:470px;background:#FBF7EF;color:var(--ink);
+    border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:18px;
+    box-shadow:0 24px 70px rgba(0,0,0,0.22);
+  }
+  .console-head{display:flex;align-items:center;justify-content:space-between;padding:4px 4px 12px;}
+  .console-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .console-status{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--forest);font-weight:700;}
+  .console-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--forest);box-shadow:0 0 0 4px rgba(79,122,91,.10);}
+  .console-art{background:#241B15;border-radius:14px;padding:8px;overflow:hidden;}
+  .console-art svg{display:block;width:100%;height:auto;}
+  .quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .quick-action{display:flex;flex-direction:column;gap:8px;min-height:126px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff;text-decoration:none;color:var(--ink);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+  .quick-action:hover{transform:translateY(-2px);border-color:rgba(193,80,46,.45);box-shadow:0 10px 24px rgba(42,32,25,.08);}
+  .quick-action.report{background:#FFF8F4;}
+  .quick-icon{width:32px;height:32px;border-radius:9px;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;color:var(--terracotta);}
+  .quick-action.report .quick-icon{background:rgba(193,80,46,.12);}
+  .quick-action h3{font-size:14px;line-height:1.25;}
+  .quick-action p{font-size:11.5px;line-height:1.45;color:var(--muted);margin:0;}
+  .quick-arrow{margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--terracotta-deep);font-weight:600;}
+  .report-number{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700;color:var(--terracotta-deep);margin-top:-2px;}
+  .report-link{font-size:10.5px;color:var(--terracotta-deep);font-weight:700;word-break:break-word;}
+  @media (max-width:520px){.quick-actions{grid-template-columns:1fr}.hero-console{max-width:none}}
+
+  /* ---------- small hero guidance strip ---------- */
+  .hero-note{display:flex;align-items:center;gap:9px;margin-top:20px;color:#B7AA9A;font-size:11.5px;}
+  .hero-note-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;}
+
+  /* ---------- feature section ---------- */
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px;}
+  @media (max-width:720px){.feature-grid{grid-template-columns:1fr;}}
+  .feature-card{
+    background:var(--paper);border:1.5px solid var(--terracotta);border-radius:14px;
+    padding:24px;
+  }
+  .feature-card h3{font-size:16px;margin-bottom:8px;}
+  .feature-card p{font-size:13.8px;color:var(--muted);margin:0;}
+  .feature-card .fi{
+    width:38px;height:38px;border-radius:10px;background:var(--cream-deep);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+
+  .about-copy{max-width:60ch;color:var(--muted);font-size:14.5px;margin-top:14px;}
+
+  /* ---------- stats ---------- */
+  .stats-section{background:var(--cream-deep);max-width:none;}
+  .stats-inner{max-width:1180px;margin:0 auto;padding:0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px;}
+  @media (max-width:780px){.stats-grid{grid-template-columns:1fr;}}
+  .stat-card{text-align:left;}
+  .stat-value{font-family:'IBM Plex Mono',monospace;font-size:clamp(30px,4vw,42px);font-weight:600;color:var(--terracotta-deep);}
+  .stat-label{font-size:13.5px;color:var(--muted);margin-top:6px;max-width:32ch;}
+  .stats-source{font-size:11.5px;color:var(--muted);margin-top:28px;}
+
+  /* ---------- how they get you ---------- */
+  .risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px;}
+  @media (max-width:780px){.risk-grid{grid-template-columns:1fr;}}
+  .risk-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px;
+  }
+  .risk-card h3{font-size:15px;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+  .risk-card p{font-size:13.5px;color:var(--muted);margin:0;}
+  .risk-num{
+    width:26px;height:26px;border-radius:50%;background:var(--terracotta);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
+    font-family:'IBM Plex Mono',monospace;flex-shrink:0;
+  }
+
+  /* ---------- how it works (two-column) ---------- */
+  .works-section{max-width:none;background:var(--ink);}
+  .works-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:0;border-radius:16px;overflow:hidden;}
+  @media (max-width:820px){.works-inner{grid-template-columns:1fr;}}
+  .works-left{background:var(--terracotta);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:center;}
+  .works-left h2{font-size:24px;line-height:1.25;margin-bottom:10px;}
+  .works-left p{font-size:13.5px;color:#F6DFD3;}
+  .works-right{background:#241B15;padding:40px;display:flex;flex-direction:column;gap:22px;}
+  .work-item{border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:20px;}
+  .work-item:last-child{border-bottom:none;padding-bottom:0;}
+  .work-item h4{color:var(--cream);font-size:14.5px;margin-bottom:5px;}
+  .work-item p{color:#B7AA9A;font-size:13px;margin:0;}
+  .work-weight{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:12px;}
+
+  /* ---------- scanner tool ---------- */
+  .scanner-section{scroll-margin-top:80px;}
+  .scanner-section .scanner-head{padding-top:4px;}
+  .scanner-section .mode-toggle{box-shadow:0 5px 18px rgba(42,32,25,.06);}
+  .scanner-head{text-align:center;max-width:640px;margin:0 auto 34px;}
+  .scanner-head h2{font-size:clamp(24px,3vw,30px);margin-bottom:10px;}
+  .scanner-head p{color:var(--muted);font-size:14.5px;}
+
+  .mode-toggle{display:inline-flex;gap:4px;background:var(--cream-deep);border:1px solid var(--line);
+    border-radius:100px;padding:4px;margin-top:18px;}
+  .mode-btn{background:transparent;border:none;padding:8px 16px;border-radius:100px;font-size:13px;
+    font-weight:600;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;}
+  .mode-btn.active{background:var(--terracotta);color:#fff;}
+
+  .escalation-banner{
+    display:flex;gap:10px;align-items:flex-start;background:rgba(163,43,31,0.08);
+    border:1px solid rgba(163,43,31,0.3);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:13px;
+  }
+  .escalation-banner b{color:var(--red);}
+
+  .chart-wrap{margin-bottom:18px;}
+  .chart-wrap svg{width:100%;height:auto;overflow:visible;}
+  .chart-line{fill:none;stroke:var(--terracotta);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+  .chart-area{opacity:0.5;}
+  .chart-dot{stroke:var(--paper);stroke-width:2;}
+  .chart-axis{stroke:var(--line);stroke-width:1;}
+  .chart-label{font-family:'IBM Plex Mono',monospace;font-size:9px;fill:var(--muted);}
+
+  .msg-card{
+    background:var(--cream);border:1px solid var(--line);border-left-width:3px;border-radius:9px;
+    padding:12px 14px;margin-bottom:10px;font-size:13px;
+  }
+  .msg-card-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;}
+  .msg-idx{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);}
+  .msg-score{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;margin-left:auto;}
+  .msg-tactic{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:100px;background:var(--cream-deep);color:var(--terracotta-deep);}
+  .msg-text{color:var(--ink);margin-bottom:6px;}
+  .msg-boost{font-size:11.5px;color:var(--red);font-weight:500;}
+
+  .scanner-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;}
+  @media (max-width:900px){.scanner-grid{grid-template-columns:1fr;}}
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .panel-head h3{font-size:14px;font-weight:700;}
+  .panel-head .tag{font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace;}
+
+  textarea{
+    width:100%;min-height:210px;background:var(--cream);border:1px solid var(--line);
+    border-radius:10px;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13.5px;
+    padding:14px;resize:vertical;outline:none;
+  }
+  textarea:focus{border-color:var(--terracotta);}
+  textarea::placeholder{color:#B7A78F;font-family:'Inter',sans-serif;}
+
+  .input-wrap{position:relative;border-radius:10px;overflow:hidden;}
+  .input-wrap.scanning::after{
+    content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--terracotta),transparent);
+    box-shadow:0 0 12px 1px var(--terracotta);animation:scan 1.3s linear infinite;
+  }
+  @keyframes scan{0%{top:0;}100%{top:100%;}}
+
+  .examples{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .example-chip{
+    font-size:12px;color:var(--muted);border:1px solid var(--line);background:transparent;
+    padding:6px 12px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;
+  }
+  .example-chip:hover{color:var(--ink);border-color:var(--terracotta);}
+
+  .analyze-row{display:flex;align-items:center;gap:14px;margin-top:16px;}
+  button.primary{
+    background:var(--terracotta);color:#fff;border:none;font-weight:700;font-size:14px;
+    padding:12px 22px;border-radius:9px;cursor:pointer;font-family:'Inter',sans-serif;
+  }
+  button.primary:disabled{opacity:0.55;cursor:default;}
+  .char-count{font-size:11.5px;color:var(--muted);font-family:'IBM Plex Mono',monospace;}
+
+  .empty-state{
+    color:var(--muted);font-size:13.5px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;min-height:320px;gap:14px;
+  }
+
+  #resultsContent{animation:fadeUp 0.4s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  .skeleton{display:flex;flex-direction:column;gap:14px;padding-top:6px;}
+  .skel-row{height:13px;border-radius:5px;background:linear-gradient(90deg,var(--cream-deep) 25%,#e8dcc4 37%,var(--cream-deep) 63%);background-size:400% 100%;animation:shimmer 1.4s ease infinite;}
+  @keyframes shimmer{0%{background-position:100% 0;}100%{background-position:0 0;}}
+
+  .gauge-wrap{display:flex;align-items:center;gap:22px;margin-bottom:6px;}
+  .gauge{position:relative;width:180px;height:104px;flex-shrink:0;}
+  .gauge svg{width:100%;height:100%;overflow:visible;}
+  .gauge-track{fill:none;stroke:var(--cream-deep);stroke-width:10;stroke-linecap:round;}
+  .gauge-fill{fill:none;stroke-width:10;stroke-linecap:round;stroke-dasharray:100 100;stroke-dashoffset:100;
+    transition:stroke-dashoffset 0.85s cubic-bezier(.22,.9,.32,1), stroke 0.4s ease;}
+  .gauge-tick{stroke:var(--line);stroke-width:2;}
+  .gauge-needle{stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;transition:transform 0.85s cubic-bezier(.22,.9,.32,1);}
+  .gauge-pivot{fill:var(--ink);}
+  .gauge-readout{position:absolute;left:0;right:0;bottom:-4px;text-align:center;}
+  .gauge-readout .val{font-size:26px;font-weight:600;font-family:'IBM Plex Mono',monospace;}
+  .gauge-readout .max{font-size:12px;color:var(--muted);font-family:'IBM Plex Mono',monospace;}
+
+  .level-info{flex:1;}
+  .level-badge{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;padding:5px 4px;margin-bottom:8px;}
+  .level-badge .lb-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .hazard-bar{height:5px;border-radius:3px;margin-bottom:10px;max-width:220px;
+    background:repeating-linear-gradient(135deg, var(--red) 0 8px, #f4d9d3 8px 16px);}
+  .level-desc{font-size:13px;color:var(--muted);max-width:280px;}
+
+  .section-title{font-size:13px;font-weight:700;color:var(--ink);margin:22px 0 10px;display:flex;align-items:center;gap:8px;}
+  .section-title:first-of-type{margin-top:4px;}
+  .section-title .count{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--muted);font-size:12px;}
+
+  .flags-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .flag-item{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;background:var(--cream);
+    border:1px solid var(--line);border-left-width:3px;border-radius:8px;font-size:13.2px;}
+  .flag-sev{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;height:fit-content;white-space:nowrap;
+    font-family:'IBM Plex Mono',monospace;margin-top:1px;}
+  .flag-sev.high{background:rgba(163,43,31,0.12);color:var(--red);}
+  .flag-sev.medium{background:rgba(217,140,43,0.15);color:var(--terracotta-deep);}
+  .flag-sev.low{background:rgba(138,122,104,0.15);color:var(--muted);}
+  .flag-item.high{border-left-color:var(--red);}
+  .flag-item.medium{border-left-color:var(--amber);}
+  .flag-item.low{border-left-color:var(--muted);}
+
+  .url-card{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:11px 13px;margin-bottom:8px;}
+  .url-card .u{font-size:12.5px;word-break:break-all;font-family:'IBM Plex Mono',monospace;}
+  .url-card .u-score{font-size:11.5px;color:var(--muted);margin-top:5px;}
+
+  /* ---------- cybercell CTA banner ---------- */
+  .help-section{max-width:none;background:var(--terracotta);color:#fff;position:relative;overflow:hidden;}
+  .help-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:36px;align-items:center;position:relative;z-index:2;}
+  @media (max-width:820px){.help-inner{grid-template-columns:1fr;}}
+  .help-eyebrow{font-size:12.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#FBD9C8;margin-bottom:12px;}
+  .help-section h2{font-size:clamp(24px,3vw,32px);line-height:1.25;margin-bottom:14px;}
+  .help-steps{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .help-steps li{display:flex;gap:10px;font-size:14px;align-items:flex-start;}
+  .help-steps .num{background:rgba(255,255,255,0.18);width:22px;height:22px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;font-family:'IBM Plex Mono',monospace;}
+  .help-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);border-radius:14px;padding:26px;}
+  .help-card .hl{font-size:13px;color:#FBD9C8;margin-bottom:4px;}
+  .help-card .num-big{font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:700;margin-bottom:18px;}
+  .help-card a.btn-primary{background:#fff;color:var(--terracotta-deep);width:100%;text-align:center;}
+  .help-note{font-size:12px;color:#FBD9C8;margin-top:14px;}
+
+  footer{
+    text-align:center;color:var(--muted);font-size:12px;padding:30px 20px 44px;max-width:640px;margin:0 auto;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <div class="brand-mark">AE</div>
+    <div class="brand-name">Aegis</div>
+  </div>
+  <a href="#scanner" class="nav-cta" data-scroll-to="scanner">Scan a message</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <svg class="squiggle" style="top:20px;right:60px;" width="90" height="70" viewBox="0 0 90 70" fill="none" aria-hidden="true">
+    <path d="M5 40c10-30 25-30 30-5s20 25 30 0 20-25 20-25" stroke="#D98C2B" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Secure your inbox</div>
+      <h1>Know if a message is trying to scam you — before you click anything.</h1>
+      <p>Paste any email, text, or DM. Aegis reads the wording and any links inside it, then scores the risk and explains exactly what it found — in seconds.</p>
+      <div class="hero-ctas">
+        <a href="#scanner" class="btn-primary" data-scroll-to="scanner">Scan a message now</a>
+        <a href="#help" class="btn-ghost" data-scroll-to="help">Already been scammed?</a>
+      </div>
+      <div class="hero-note"><span class="hero-note-dot"></span>Private by design · your pasted message is processed server-side and not stored.</div>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-console">
+        <div class="console-head">
+          <span class="console-label">Aegis security center</span>
+          <span class="console-status">Ready</span>
+        </div>
+        <div class="console-art">
+          <svg width="280" height="190" viewBox="0 0 280 190" fill="none" aria-hidden="true">
+            <rect x="22" y="12" width="236" height="132" rx="12" fill="#241B15" stroke="#3A2C22"/>
+            <rect x="38" y="30" width="142" height="10" rx="3" fill="#4A3A2E"/>
+            <rect x="38" y="51" width="202" height="8" rx="3" fill="#3A2C22"/>
+            <rect x="38" y="67" width="166" height="8" rx="3" fill="#3A2C22"/>
+            <rect x="38" y="83" width="188" height="8" rx="3" fill="#3A2C22"/>
+            <rect x="38" y="99" width="126" height="8" rx="3" fill="#3A2C22"/>
+            <circle cx="218" cy="112" r="27" fill="#C1502E"/>
+            <path d="M218 99v16" stroke="#FBF7EF" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="218" cy="121" r="2.3" fill="#FBF7EF"/>
+            <rect x="8" y="157" width="264" height="12" rx="6" fill="#3A2C22"/>
+          </svg>
+        </div>
+        <div class="quick-actions">
+          <a class="quick-action" href="#scanner" data-scroll-to="scanner">
+            <span class="quick-icon" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.7"/><path d="m7 15 3-3 2.2 2.2L15 11l2 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Scan a message</h3>
+            <p>Check an email, SMS, DM, or a whole conversation.</p>
+            <span class="quick-arrow">OPEN SCANNER →</span>
+          </a>
+          <div class="quick-action report">
+            <span class="quick-icon" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 3 4 6v5c0 4.8 3.2 8.6 8 10 4.8-1.4 8-5.2 8-10V6l-8-3Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1" fill="currentColor"/></svg>
+            </span>
+            <h3>Already been scammed?</h3>
+            <div class="report-number">1930</div>
+            <a class="report-link" href="https://cybercrime.gov.in" target="_blank" rel="noopener">Report at cybercrime.gov.in ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= UNDERSTANDING THE THREAT ================= -->
+<section>
+  <div class="eyebrow">The problem</div>
+  <h2 style="font-size:clamp(22px,3vw,28px);max-width:22ch;">Phishing messages are getting harder to spot on your own.</h2>
+  <p class="about-copy">Scam messages don't look like scams anymore. They copy real logos, real wording, and create urgency so you act before you think. Aegis does the pattern-matching a busy person can't do in the moment — reading both the message and any embedded links, then showing you exactly why something looks dangerous.</p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="fi">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 10-12h-7l1-8z" fill="#C1502E"/></svg>
+      </div>
+      <h3>Real-time detection</h3>
+      <p>Get a risk score in under a second — combining a trained language model with rule-based checks on urgency, threats, and credential requests.</p>
+    </div>
+    <div class="feature-card">
+      <div class="fi">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12s3.5-7 8-7 8 7 8 7-3.5 7-8 7-8-7-8-7z" stroke="#C1502E" stroke-width="1.8"/><circle cx="12" cy="12" r="2.6" fill="#C1502E"/></svg>
+      </div>
+      <h3>Full transparency, not a black box</h3>
+      <p>Every score comes with the exact evidence behind it: which phrases, which links, and why — so you can verify it yourself, not just trust a number.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats-section">
+  <div class="stats-inner" style="padding:64px clamp(20px,5vw,64px);">
+    <div class="eyebrow">Why this matters</div>
+    <h2 style="font-size:clamp(22px,3vw,28px);max-width:26ch;">Phishing isn't a rare scare story. It's the most reported cybercrime there is.</h2>
+
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="stat-value" data-target="16.6" data-suffix="B" data-prefix="$">$0B</div>
+        <div class="stat-label">lost to internet crime in the US in 2024 alone — a 33% jump from the year before.</div></div>
+      <div class="stat-card"><div class="stat-value" data-target="193" data-suffix="K" data-prefix="">0K</div>
+        <div class="stat-label">phishing/spoofing complaints reported in a single year — the single most common cybercrime type.</div></div>
+      <div class="stat-card"><div class="stat-value" data-target="19372" data-suffix="" data-prefix="$">$0</div>
+        <div class="stat-label">average financial loss per victim when a scam succeeds. It adds up fast, one message at a time.</div></div>
+    </div>
+    <div class="stats-source">Source: FBI Internet Crime Complaint Center (IC3), 2024 Internet Crime Report.</div>
+  </div>
+</section>
+
+<!-- ================= HOW SCAMMERS GET YOU ================= -->
+<section>
+  <div class="eyebrow">How it actually happens</div>
+  <h2 style="font-size:clamp(22px,3vw,28px);max-width:26ch;">Here's the playbook behind most scams — so it stops working on you.</h2>
+
+  <div class="risk-grid">
+    <div class="risk-card"><h3><span class="risk-num">1</span>A fake "urgent" message</h3>
+      <p>A text or email pretends to be your bank, a delivery company, or a government agency, warning your account will be suspended unless you act immediately.</p></div>
+    <div class="risk-card"><h3><span class="risk-num">2</span>A convincing fake login page</h3>
+      <p>The link leads to a page built to look identical to the real site. The moment you type your password or OTP there, it goes straight to the scammer.</p></div>
+    <div class="risk-card"><h3><span class="risk-num">3</span>Silent account takeover</h3>
+      <p>With your credentials, they can drain accounts, take over your social media, or lock you out entirely before you notice anything is wrong.</p></div>
+    <div class="risk-card"><h3><span class="risk-num">4</span>Blackmail using your own data</h3>
+      <p>Stolen private messages, photos, or contacts are sometimes used afterward to threaten and extort the victim directly — this is why acting fast matters.</p></div>
+  </div>
+</section>
+
+<!-- ================= HOW AEGIS WORKS ================= -->
+<section class="works-section">
+  <div class="works-inner">
+    <div class="works-left">
+      <div class="eyebrow" style="color:#FBD9C8;">How Aegis works</div>
+      <h2>Three signals. One transparent score.</h2>
+      <p>No single check catches everything. Aegis blends a trained model with explicit rules, so it catches both known tricks and new ones.</p>
+    </div>
+    <div class="works-right">
+      <div class="work-item"><h4>Language model <span class="work-weight">· 50%</span></h4>
+        <p>Trained to recognise the statistical fingerprint of scam wording, even phrasing it hasn't seen before.</p></div>
+      <div class="work-item"><h4>Text heuristics <span class="work-weight">· 30%</span></h4>
+        <p>Explicit rules for urgency, threats, credential requests, and generic greetings — fully explainable, no guessing.</p></div>
+      <div class="work-item"><h4>URL structure analysis <span class="work-weight">· 20%</span></h4>
+        <p>Checks every link for shorteners, typosquatted domains, raw IPs, and other structural red flags — without ever visiting the link.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCANNER TOOL ================= -->
+<section class="scanner-section" id="scanner">
+  <div class="scanner-head">
+    <div class="eyebrow" style="justify-content:center;">Try it now</div>
+    <h2>Paste a message. See the verdict.</h2>
+    <p>Runs fully server-side. Nothing you paste here is stored.</p>
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="modeSingleBtn" data-mode="single">Single message</button>
+      <button class="mode-btn" id="modeThreadBtn" data-mode="thread">Conversation thread</button>
+    </div>
+  </div>
+
+  <div class="scanner-grid">
+    <div class="panel">
+      <div class="panel-head"><h3 id="inputTitle">Message to analyze</h3><span class="tag">input</span></div>
+      <div class="input-wrap" id="inputWrap">
+        <textarea id="messageInput" placeholder="Paste the email, SMS, or DM text here — including any links it contains…"></textarea>
+      </div>
+      <div class="examples">
+        <button class="example-chip mode-single" data-kind="phishing">Try a phishing email</button>
+        <button class="example-chip mode-single" data-kind="smishing">Try a smishing text</button>
+        <button class="example-chip mode-single" data-kind="legit">Try a legit message</button>
+        <button class="example-chip mode-thread" data-kind="thread" style="display:none;">Try an escalating scam thread</button>
+      </div>
+      <div class="analyze-row">
+        <button class="primary" id="analyzeBtn">Run scan</button>
+        <span class="char-count" id="charCount"></span>
+      </div>
+    </div>
+
+    <div class="panel" id="resultsPanel">
+      <div class="panel-head"><h3>Risk assessment</h3><span class="tag">output</span></div>
+      <div class="empty-state" id="emptyState">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3z" stroke="#B7A78F" stroke-width="1.3" fill="none"/></svg>
+        <div>Paste a message on the left and click <strong>Run scan</strong>.<br/>Aegis will score it and explain exactly why.</div>
+      </div>
+      <div id="resultsContent" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HELP / CYBER CELL ================= -->
+<section class="help-section" id="help">
+  <svg class="squiggle" style="bottom:10px;right:40px;opacity:0.35;" width="120" height="90" viewBox="0 0 120 90" fill="none">
+    <path d="M10 70c15-40 35-40 42-8s28 32 42 0 26-32 26-32" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+  <div style="padding:64px clamp(20px,5vw,64px);">
+    <div class="help-inner">
+      <div>
+        <div class="help-eyebrow">If it already happened</div>
+        <h2>Already clicked a link, or lost money? Report it immediately — speed matters.</h2>
+        <ul class="help-steps">
+          <li><span class="num">1</span>Don't panic, and don't send any further payments or OTPs to "fix" it.</li>
+          <li><span class="num">2</span>If money was involved, call the number below right now — the faster it's reported, the more likely a transfer can still be traced or frozen.</li>
+          <li><span class="num">3</span>File a complaint at the portal below with screenshots, sender details, and transaction IDs.</li>
+          <li><span class="num">4</span>Outside India, contact your local police cybercrime unit, or your national reporting body (e.g. IC3 at ic3.gov in the US).</li>
+        </ul>
+      </div>
+      <div class="help-card">
+        <div class="hl">India · Cyber Crime Helpline (24×7)</div>
+        <div class="num-big">1930</div>
+        <a class="btn-primary" href="https://cybercrime.gov.in" target="_blank" rel="noopener">Report at cybercrime.gov.in</a>
+        <div class="help-note">Run by the Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs — the official channel for reporting financial fraud, hacking, and online harassment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Aegis is a hackathon prototype for education and demo purposes. Always verify suspicious messages through an official channel, never through a link inside the message itself.
+</footer>
+
+<script>
+const API_BASE = "";
+
+const EXAMPLES = {
+  phishing: "Dear Customer, your Apple account has been suspended due to unusual activity. Verify your identity immediately at apple-verify-id.top or your account will be permanently closed within 24 hours.",
+  smishing: "USPS: Your package is on hold due to unpaid customs fee of $2.99. Pay here: bit.ly/3xVerify",
+  legit: "Hey, are we still on for lunch tomorrow at 1pm? Let me know if that works for you."
+};
+
+const THREAD_EXAMPLE = [
+  "Hi! I saw your profile, hope you don't mind me messaging. How was your day?",
+  "You seem really interesting, I like talking to you already :)",
+  "I don't usually share this much but I feel like I can trust you. I lost my wife last year, it's been lonely.",
+  "Please don't tell your friends about us yet, I want this to just be between us for now.",
+  "By the way, my broker has been helping me with a crypto trading platform, guaranteed returns every week.",
+  "I really think you should try it too, spots are limited this week only.",
+  "Can you send $500 to get started? I promise I will guide you through everything.",
+  "We are so close to unlocking the bigger returns, I just need a little bit more, say $2000 to release the funds."
+].join('\n');
+
+let mode = 'single';
+
+const input = document.getElementById('messageInput');
+const analyzeBtn = document.getElementById('analyzeBtn');
+const charCount = document.getElementById('charCount');
+const emptyState = document.getElementById('emptyState');
+const resultsContent = document.getElementById('resultsContent');
+const inputWrap = document.getElementById('inputWrap');
+const inputTitle = document.getElementById('inputTitle');
+
+document.getElementById('modeSingleBtn').addEventListener('click', ()=> setMode('single'));
+document.getElementById('modeThreadBtn').addEventListener('click', ()=> setMode('thread'));
+
+function setMode(m){
+  mode = m;
+  document.getElementById('modeSingleBtn').classList.toggle('active', m === 'single');
+  document.getElementById('modeThreadBtn').classList.toggle('active', m === 'thread');
+  document.querySelectorAll('.mode-single').forEach(el=> el.style.display = m === 'single' ? '' : 'none');
+  document.querySelectorAll('.mode-thread').forEach(el=> el.style.display = m === 'thread' ? '' : 'none');
+  inputTitle.textContent = m === 'single' ? 'Message to analyze' : 'Conversation thread (one message per line, in order)';
+  input.placeholder = m === 'single'
+    ? 'Paste the email, SMS, or DM text here — including any links it contains…'
+    : 'Paste each message the other person sent, one per line, oldest first…';
+  input.value = '';
+  updateCharCount();
+  emptyState.style.display = 'flex';
+  resultsContent.style.display = 'none';
+}
+
+document.querySelectorAll('.example-chip').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    input.value = btn.dataset.kind === 'thread' ? THREAD_EXAMPLE : EXAMPLES[btn.dataset.kind];
+    updateCharCount();
+  });
+});
+
+function updateCharCount(){ charCount.textContent = input.value.length + ' chars'; }
+input.addEventListener('input', updateCharCount);
+updateCharCount();
+
+function levelColor(level){
+  if(level === 'Dangerous') return 'var(--red)';
+  if(level === 'Suspicious') return 'var(--amber)';
+  if(level === 'Low Risk') return 'var(--terracotta)';
+  return 'var(--forest)';
+}
+function levelDesc(level){
+  return ({
+    'Dangerous': 'Strong indicators of phishing or scam intent. Do not click any links or share information.',
+    'Suspicious': 'Multiple red flags present. Treat with caution and verify through an official channel.',
+    'Low Risk': 'A few minor signals were found, but nothing conclusive.',
+    'Safe': 'No significant phishing or scam indicators were detected.'
+  })[level] || '';
+}
+
+async function analyze(){
+  if(mode === 'thread') return analyzeThread();
+
+  const text = input.value.trim();
+  if(!text) return;
+  analyzeBtn.disabled = true; analyzeBtn.textContent = 'Scanning…';
+  inputWrap.classList.add('scanning');
+  emptyState.style.display = 'none';
+  resultsContent.style.display = 'block';
+  resultsContent.innerHTML = `<div class="skeleton">
+    <div class="skel-row" style="width:40%;"></div><div class="skel-row" style="width:90%;"></div>
+    <div class="skel-row" style="width:75%;"></div><div class="skel-row" style="width:60%;"></div></div>`;
+  try{
+    const res = await fetch(API_BASE + '/api/analyze', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text})
+    });
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.error || 'Something went wrong.');
+    render(data);
+  }catch(err){
+    resultsContent.innerHTML = `<div class="flag-item high"><span class="flag-sev high">error</span><span>${err.message}</span></div>`;
+  }finally{
+    analyzeBtn.disabled = false; analyzeBtn.textContent = 'Run scan';
+    inputWrap.classList.remove('scanning');
+  }
+}
+
+async function analyzeThread(){
+  const messages = input.value.split('\n').map(s=>s.trim()).filter(Boolean);
+  if(!messages.length) return;
+  analyzeBtn.disabled = true; analyzeBtn.textContent = 'Scanning…';
+  inputWrap.classList.add('scanning');
+  emptyState.style.display = 'none';
+  resultsContent.style.display = 'block';
+  resultsContent.innerHTML = `<div class="skeleton">
+    <div class="skel-row" style="width:50%;"></div><div class="skel-row" style="width:95%;"></div>
+    <div class="skel-row" style="width:80%;"></div><div class="skel-row" style="width:70%;"></div></div>`;
+  try{
+    const res = await fetch(API_BASE + '/api/analyze_thread', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({messages})
+    });
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.error || 'Something went wrong.');
+    renderThread(data);
+  }catch(err){
+    resultsContent.innerHTML = `<div class="flag-item high"><span class="flag-sev high">error</span><span>${err.message}</span></div>`;
+  }finally{
+    analyzeBtn.disabled = false; analyzeBtn.textContent = 'Run scan';
+    inputWrap.classList.remove('scanning');
+  }
+}
+
+function chartSvg(scores){
+  const w = 560, h = 160, padX = 24, padY = 20;
+  const n = scores.length;
+  const x = i => n <= 1 ? padX : padX + (i * (w - 2*padX) / (n - 1));
+  const y = s => padY + (100 - s) * (h - 2*padY) / 100;
+  const pathD = scores.map((s,i)=> `${i===0?'M':'L'} ${x(i).toFixed(1)} ${y(s).toFixed(1)}`).join(' ');
+  const areaD = `${pathD} L ${x(n-1).toFixed(1)} ${h-padY} L ${x(0).toFixed(1)} ${h-padY} Z`;
+  const dots = scores.map((s,i)=>{
+    const c = levelColor(s>=65?'Dangerous':s>=35?'Suspicious':s>=15?'Low Risk':'Safe');
+    return `<circle class="chart-dot" cx="${x(i).toFixed(1)}" cy="${y(s).toFixed(1)}" r="4.5" style="fill:${c}"></circle>`;
+  }).join('');
+  const labels = scores.map((s,i)=> `<text class="chart-label" x="${x(i).toFixed(1)}" y="${h-2}" text-anchor="middle">#${i+1}</text>`).join('');
+  return `<svg viewBox="0 0 ${w} ${h}">
+    <defs><linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C1502E" stop-opacity="0.35"></stop>
+      <stop offset="100%" stop-color="#C1502E" stop-opacity="0"></stop>
+    </linearGradient></defs>
+    <line class="chart-axis" x1="${padX}" y1="${padY}" x2="${padX}" y2="${h-padY}"></line>
+    <line class="chart-axis" x1="${padX}" y1="${h-padY}" x2="${w-padX}" y2="${h-padY}"></line>
+    <path class="chart-area" style="fill:#C1502E;" d="${areaD}"></path>
+    <path class="chart-line" d="${pathD}"></path>
+    ${dots}${labels}
+  </svg>`;
+}
+
+function renderThread(data){
+  emptyState.style.display = 'none';
+  resultsContent.style.display = 'block';
+  let html = '';
+
+  if(data.escalation_detected){
+    html += `<div class="escalation-banner"><span>&#9888;&#65039;</span><span><b>Escalation pattern detected.</b> ${data.escalation_note}</span></div>`;
+  }
+
+  html += `<div class="chart-wrap">${chartSvg(data.scores)}</div>`;
+
+  html += `<div class="section-title">Message-by-message breakdown <span class="count">${data.messages.length}</span></div>`;
+  for(const m of data.messages){
+    const color = levelColor(m.risk_level);
+    const tactics = m.tactics.map(t=>`<span class="msg-tactic">${t.label}</span>`).join(' ');
+    html += `
+      <div class="msg-card" style="border-left-color:${color};">
+        <div class="msg-card-head">
+          <span class="msg-idx">#${m.index+1}</span>
+          ${tactics}
+          <span class="msg-score" style="color:${color};">${m.risk_score} · ${m.risk_level}</span>
+        </div>
+        <div class="msg-text">${m.text.replace(/</g,'&lt;')}</div>
+        ${m.context_boosted ? `<div class="msg-boost">&#8593; Boosted: this ask follows earlier trust-building in the thread.</div>` : ''}
+      </div>`;
+  }
+
+  resultsContent.innerHTML = html;
+}
+
+function gaugeSvg(){
+  return `<svg viewBox="0 0 200 108">
+      <path class="gauge-track" d="M10 100 A90 90 0 0 1 190 100" pathLength="100"></path>
+      <path class="gauge-fill" id="gaugeFill" d="M10 100 A90 90 0 0 1 190 100" pathLength="100"></path>
+      ${[-90,-54,-18,18,54,90].map(a=>`<line class="gauge-tick" x1="100" y1="14" x2="100" y2="24" transform="rotate(${a} 100 100)"></line>`).join('')}
+      <line class="gauge-needle" id="needle" x1="100" y1="100" x2="100" y2="30"></line>
+      <circle class="gauge-pivot" cx="100" cy="100" r="4.5"></circle>
+    </svg>`;
+}
+
+function render(data){
+  emptyState.style.display = 'none';
+  resultsContent.style.display = 'block';
+  const color = levelColor(data.risk_level);
+  let html = `
+    <div class="gauge-wrap">
+      <div class="gauge">${gaugeSvg()}<div class="gauge-readout"><span class="val mono" id="scoreValue">0</span><span class="max">/100</span></div></div>
+      <div class="level-info">
+        <div class="level-badge" style="color:${color};"><span class="lb-dot" style="background:${color};"></span>${data.risk_level}</div>
+        ${data.risk_level === 'Dangerous' ? '<div class="hazard-bar"></div>' : ''}
+        <div class="level-desc">${levelDesc(data.risk_level)}</div>
+      </div>
+    </div>`;
+
+  if(data.flags && data.flags.length){
+    html += `<div class="section-title">Detected patterns <span class="count">${data.flags.length}</span></div><ul class="flags-list">`;
+    for(const f of data.flags){
+      html += `<li class="flag-item ${f.severity}"><span class="flag-sev ${f.severity}">${f.severity}</span><span>${f.message}</span></li>`;
+    }
+    html += `</ul>`;
+  }
+  if(data.urls && data.urls.length){
+    html += `<div class="section-title">Links found <span class="count">${data.urls.length}</span></div>`;
+    for(const u of data.urls){
+      html += `<div class="url-card"><div class="u">${u.url}</div><div class="u-score">Link risk contribution: ${u.score}/100</div></div>`;
+    }
+  }
+  if(!data.flags.length && !data.urls.length){
+    html += `<div class="section-title">No red flags detected</div><div style="color:var(--muted);font-size:13.5px;">This message doesn't match known phishing or scam patterns.</div>`;
+  }
+  resultsContent.innerHTML = html;
+  requestAnimationFrame(()=> animateGauge(data.risk_score, color));
+}
+
+function animateGauge(target, color){
+  const fill = document.getElementById('gaugeFill');
+  const needle = document.getElementById('needle');
+  const valueEl = document.getElementById('scoreValue');
+  if(!fill || !needle || !valueEl) return;
+  fill.style.stroke = color;
+  fill.style.strokeDashoffset = String(100 - target);
+  needle.setAttribute('transform', `rotate(${-90 + (target/100)*180} 100 100)`);
+  const duration = 850; const start = performance.now();
+  function tick(now){
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    valueEl.textContent = Math.round(target * eased);
+    if(t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+analyzeBtn.addEventListener('click', analyze);
+input.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' && (e.metaKey || e.ctrlKey)) analyze(); });
+
+/* ---- robust in-page scrolling (works even in preview contexts that
+   mishandle plain #anchor links, e.g. rewriting them against a host URL) ---- */
+document.querySelectorAll('[data-scroll-to]').forEach(el=>{
+  el.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const target = document.getElementById(el.dataset.scrollTo);
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+/* ---- scroll-triggered stat count-up ---- */
+const statObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      animateStat(entry.target);
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.4});
+document.querySelectorAll('.stat-value').forEach(el=> statObserver.observe(el));
+
+function animateStat(el){
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const prefix = el.dataset.prefix || '';
+  const isDecimal = String(target).includes('.');
+  const duration = 1200; const start = performance.now();
+  function tick(now){
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const current = target * eased;
+    const display = isDecimal ? current.toFixed(1) : Math.round(current).toLocaleString();
+    el.textContent = prefix + display + suffix;
+    if(t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>

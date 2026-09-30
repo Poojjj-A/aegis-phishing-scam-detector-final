@@ -1,0 +1,307 @@
+text,category,label
+This is Coinbase Security. Your account will be locked unless you verify your SSN and date of birth at confirm-billing.click immediately. Failure to respond will result in legal action.,phishing_email,1
+Your Netflix account has been locked. Verify your identity within 24 hrs: netfliix-billing.com,smishing,1
+The plumber will arrive between 9-11am tomorrow to fix the leak.,legitimate,0
+"Our repo's CI just passed, see the build log here: https://github.com/settings",legitimate,0
+The report you requested is attached. Let me know if the numbers for Q3 look right.,legitimate,0
+"Dear valued customer, we noticed a problem with your Netflix billing details. Please confirm your account information at tinyurl.com/acct-verify within 24 hours or access will be restricted.",phishing_email,1
+"Your Wi-Fi router firmware has been updated automatically, no action needed.",legitimate,0
+"Happy birthday! Hope you have a wonderful day, let's catch up this weekend.",legitimate,0
+"Happy birthday! Hope you have a wonderful day, let's catch up this weekend.",legitimate,0
+Here's the recipe I mentioned - let me know how it turns out if you try it!,legitimate,0
+"URGENT: We detected a login attempt to your DHL account from a new device. If this wasn't you, confirm your password and security details now at account-update.xyz to avoid suspension.",phishing_email,1
+The plumber will arrive between 9-11am tomorrow to fix the leak.,legitimate,0
+Your Coinbase account has been locked. Verify your identity within 24 hrs: verify-appleid.work,smishing,1
+Here's the shared doc we discussed: https://www.irs.gov/refunds,legitimate,0
+"Check out this article, thought you'd find it interesting: https://www.amazon.com/orders",legitimate,0
+Your bank account will be frozen due to unusual activity. Verify your PIN immediately: bit.ly/3xVerify,smishing,1
+"Reminder that our book club meets this Thursday at 7pm, same as usual.",legitimate,0
+Delivery attempt failed. Reschedule your LinkedIn package here (small fee applies): secure-verify-login.top,smishing,1
+"Your feedback on the last sprint was really helpful, thanks for taking the time.",legitimate,0
+You have a pending refund of $2500. Click to claim before it expires: confirm-billing.click,smishing,1
+Your monthly statement is now available to view in your online banking portal.,legitimate,0
+"The library book you reserved is ready for pickup, please collect it within 5 days.",legitimate,0
+Your flight AA1234 departs at 6:45am from Gate B12. Check in online to save time at the airport.,legitimate,0
+Your order #74799 has shipped and is expected to arrive on Thursday. Track it anytime in your account.,legitimate,0
+"Investment opportunity: Turn $200 into $5,000 in one week with our exclusive crypto trading bot. Limited spots, deposit now: irs-refund-claim.gq",social_scam,1
+"Hi team, attaching the meeting notes from today's stand-up. Let me know if I missed anything.",legitimate,0
+USPS: Your package is on hold due to unpaid customs fee of $2.99. Pay here: confirm-billing.click,smishing,1
+"Our repo's CI just passed, see the build log here: https://zoom.us/j/1234567",legitimate,0
+Thanks for your payment of $45.00 for this month's electricity bill. Your account is up to date.,legitimate,0
+"Dear valued customer, we noticed a problem with your Microsoft billing details. Please confirm your account information at confirm-billing.click within 24 hours or access will be restricted.",phishing_email,1
+"Amazon: Your card ending 4432 was charged $500. If this wasn't you, verify now: bankofamerica.login-alert.ru",smishing,1
+"Hey, are we still on for lunch tomorrow at 1pm? Let me know if that works for you.",legitimate,0
+"Check out this article, thought you'd find it interesting: https://www.amazon.com/orders",legitimate,0
+Chase Bank Alert: Your package could not be delivered due to an incomplete address. Reschedule delivery and pay a small redelivery fee at amaz0n-support.net within 48 hours.,phishing_email,1
+"Your Bank of America account shows suspicious sign-in activity from a foreign IP address. Act now and verify your account at account-update.xyz, or it will be deactivated tonight.",phishing_email,1
+Final notice from USPS: An invoice #11504 for $99 is overdue. Pay now at netfliix-billing.com to avoid penalties and referral to collections.,phishing_email,1
+FINAL WARNING: Unpaid toll of $9.75. Pay now to avoid late fees and DMV report: paypa1-secure.com,smishing,1
+"Mom, I landed safely! Will call you once I get to the hotel. Love you.",legitimate,0
+Your bank account will be frozen due to unusual activity. Verify your PIN immediately: irs-refund-claim.gq,smishing,1
+"The library book you reserved is ready for pickup, please collect it within 5 days.",legitimate,0
+"The library book you reserved is ready for pickup, please collect it within 5 days.",legitimate,0
+Your bank account will be frozen due to unusual activity. Verify your PIN immediately: bit.ly/3xVerify,smishing,1
+"I've been thinking about you all day. I need $800 to cover an emergency, can you wire it to this account? I'll pay you back double next week: netfliix-billing.com",social_scam,1
+Reminder: your dentist appointment is scheduled for Monday at 10:30am. Reply CONFIRM or call to reschedule.,legitimate,0
+Class is moved to room 204 for tomorrow's lecture. See you there.,legitimate,0
+"Your Netflix account shows suspicious sign-in activity from a foreign IP address. Act now and verify your account at netfliix-billing.com, or it will be deactivated tonight.",phishing_email,1
+"Congratulations! You have won a $1,000 USPS gift card. Claim your prize before it expires by clicking tinyurl.com/acct-verify and entering your card number to cover a small shipping fee.",phishing_email,1
+USPS: Your package is on hold due to unpaid customs fee of $2.99. Pay here: paypa1-secure.com,smishing,1
+ALERT: Unusual sign-in detected on your account. Confirm it's you or account will be suspended: bit.ly/3xVerify,smishing,1
+"Hey, are we still on for lunch tomorrow at 1pm? Let me know if that works for you.",legitimate,0
+"Congrats! You've won a free iPhone 15 from Wells Fargo. Claim now, offer expires today: bankofamerica.login-alert.ru",smishing,1
+Bank of America Alert: Your package could not be delivered due to an incomplete address. Reschedule delivery and pay a small redelivery fee at fedex-redelivery.cam within 48 hours.,phishing_email,1
+ALERT: Unusual sign-in detected on your account. Confirm it's you or account will be suspended: chase-secure.online,smishing,1
+"Dear Customer, your Wells Fargo account has been suspended due to unusual activity. Verify your identity immediately at usps-tracking.info or your account will be permanently closed within 24 hours.",phishing_email,1
+"Dear Customer, your Wells Fargo account has been suspended due to unusual activity. Verify your identity immediately at confirm-billing.click or your account will be permanently closed within 24 hours.",phishing_email,1
+"Hello dear, I am a soldier overseas and need help transferring $2,000,000 inheritance. Share your account details and I will reward you generously: irs-refund-claim.gq",social_scam,1
+The report you requested is attached. Let me know if the numbers for Q3 look right.,legitimate,0
+"I've been thinking about you all day. I need $800 to cover an emergency, can you wire it to this account? I'll pay you back double next week: bit.ly/3xVerify",social_scam,1
+Your subscription renews on the 14th. No action is needed unless you'd like to make changes.,legitimate,0
+Your one-time password is required to confirm a large withdrawal. Enter your OTP here: confirm-billing.click,smishing,1
+Just checking in - how did the interview go? Would love to hear how it went.,legitimate,0
+"Your Wi-Fi router firmware has been updated automatically, no action needed.",legitimate,0
+Delivery attempt failed. Reschedule your Microsoft package here (small fee applies): fedex-redelivery.cam,smishing,1
+Can you send over the slides before the review call at 3pm?,legitimate,0
+Your order #62383 has shipped and is expected to arrive on Thursday. Track it anytime in your account.,legitimate,0
+Here's the recipe I mentioned - let me know how it turns out if you try it!,legitimate,0
+Your monthly statement is now available to view in your online banking portal.,legitimate,0
+You have a pending refund of $149. Click to claim before it expires: account-update.xyz,smishing,1
+"Your the IRS account shows suspicious sign-in activity from a foreign IP address. Act now and verify your account at paypa1-secure.com, or it will be deactivated tonight.",phishing_email,1
+Your order #41979 has shipped and is expected to arrive on Thursday. Track it anytime in your account.,legitimate,0
+Class is moved to room 204 for tomorrow's lecture. See you there.,legitimate,0
+"I've been thinking about you all day. I need $800 to cover an emergency, can you wire it to this account? I'll pay you back double next week: account-update.xyz",social_scam,1
+"Happy birthday! Hope you have a wonderful day, let's catch up this weekend.",legitimate,0
+"Hello dear, I am a soldier overseas and need help transferring $2,000,000 inheritance. Share your account details and I will reward you generously: usps-tracking.info",social_scam,1
+"Hey, are we still on for lunch tomorrow at 1pm? Let me know if that works for you.",legitimate,0
+"Dear valued customer, we noticed a problem with your Wells Fargo billing details. Please confirm your account information at secure-verify-login.top within 24 hours or access will be restricted.",phishing_email,1
+"Investment opportunity: Turn $200 into $5,000 in one week with our exclusive crypto trading bot. Limited spots, deposit now: 192.168.77.10/login",social_scam,1
+"URGENT: We detected a login attempt to your DHL account from a new device. If this wasn't you, confirm your password and security details now at amaz0n-support.net to avoid suspension.",phishing_email,1
+The plumber will arrive between 9-11am tomorrow to fix the leak.,legitimate,0
+"Hello dear, I am a soldier overseas and need help transferring $2,000,000 inheritance. Share your account details and I will reward you generously: usps-tracking.info",social_scam,1
+Final notice from Coinbase: An invoice #44522 for $149 is overdue. Pay now at secure-verify-login.top to avoid penalties and referral to collections.,phishing_email,1
+Your Coinbase payment of $249.99 could not be processed. Update your billing information within 12 hours at bankofamerica.login-alert.ru to avoid service interruption and late penalties.,phishing_email,1
+Your USPS account has been locked. Verify your identity within 24 hrs: confirm-billing.click,smishing,1
+This is Netflix Security. Your account will be locked unless you verify your SSN and date of birth at irs-refund-claim.gq immediately. Failure to respond will result in legal action.,phishing_email,1
+Your subscription renews on the 14th. No action is needed unless you'd like to make changes.,legitimate,0
+"The library book you reserved is ready for pickup, please collect it within 5 days.",legitimate,0
+Just checking in - how did the interview go? Would love to hear how it went.,legitimate,0
+The report you requested is attached. Let me know if the numbers for Q3 look right.,legitimate,0
+Your subscription renews on the 14th. No action is needed unless you'd like to make changes.,legitimate,0
+"Hi team, attaching the meeting notes from today's stand-up. Let me know if I missed anything.",legitimate,0
+Your one-time password is required to confirm a large withdrawal. Enter your OTP here: account-update.xyz,smishing,1
+Your one-time password is required to confirm a large withdrawal. Enter your OTP here: secure-verify-login.top,smishing,1
+You have a pending refund of $149. Click to claim before it expires: bankofamerica.login-alert.ru,smishing,1
+"Work from home job: Earn $300/day, no experience needed! Just pay a $50 registration fee at confirm-billing.click to start immediately.",social_scam,1
+FINAL WARNING: Unpaid toll of $9.75. Pay now to avoid late fees and DMV report: bankofamerica.login-alert.ru,smishing,1
+Here's the shared doc we discussed: https://www.irs.gov/refunds,legitimate,0
+ALERT: Unusual sign-in detected on your account. Confirm it's you or account will be suspended: amaz0n-support.net,smishing,1
+You have a pending refund of $999. Click to claim before it expires: chase-secure.online,smishing,1
+Your subscription renews on the 14th. No action is needed unless you'd like to make changes.,legitimate,0
+"Dear valued customer, we noticed a problem with your Bank of America billing details. Please confirm your account information at confirm-billing.click within 24 hours or access will be restricted.",phishing_email,1
+Your ride is arriving in 3 minutes. Look for a blue sedan near the main entrance.,legitimate,0
+Here's the shared doc we discussed: https://zoom.us/j/1234567,legitimate,0
+"Dear valued customer, we noticed a problem with your Amazon billing details. Please confirm your account information at 192.168.77.10/login within 24 hours or access will be restricted.",phishing_email,1
+"Apple: Your card ending 4432 was charged $49. If this wasn't you, verify now: secure-verify-login.top",smishing,1
+"I've been thinking about you all day. I need $800 to cover an emergency, can you wire it to this account? I'll pay you back double next week: tinyurl.com/acct-verify",social_scam,1
+Great seeing you at the conference! Let's grab coffee sometime next month.,legitimate,0
+Your ride is arriving in 3 minutes. Look for a blue sedan near the main entrance.,legitimate,0
+"Check out this article, thought you'd find it interesting: https://www.amazon.com/orders",legitimate,0
+"Dear Customer, your Apple account has been suspended due to unusual activity. Verify your identity immediately at secure-verify-login.top or your account will be permanently closed within 24 hours.",phishing_email,1
+The plumber will arrive between 9-11am tomorrow to fix the leak.,legitimate,0
+"URGENT: We detected a login attempt to your Apple account from a new device. If this wasn't you, confirm your password and security details now at verify-appleid.work to avoid suspension.",phishing_email,1
+Reminder: your dentist appointment is scheduled for Monday at 10:30am. Reply CONFIRM or call to reschedule.,legitimate,0
+Your USPS payment of $249.99 could not be processed. Update your billing information within 12 hours at account-update.xyz to avoid service interruption and late penalties.,phishing_email,1
+"Mom, I landed safely! Will call you once I get to the hotel. Love you.",legitimate,0
+Your DHL payment of $249.99 could not be processed. Update your billing information within 12 hours at chase-secure.online to avoid service interruption and late penalties.,phishing_email,1
+"URGENT: We detected a login attempt to your PayPal account from a new device. If this wasn't you, confirm your password and security details now at tinyurl.com/acct-verify to avoid suspension.",phishing_email,1
+Great seeing you at the conference! Let's grab coffee sometime next month.,legitimate,0
+Final notice from Apple: An invoice #66985 for $149 is overdue. Pay now at amaz0n-support.net to avoid penalties and referral to collections.,phishing_email,1
+This is Instagram Security. Your account will be locked unless you verify your SSN and date of birth at paypa1-secure.com immediately. Failure to respond will result in legal action.,phishing_email,1
+Your monthly newsletter is ready to read: https://github.com/settings,legitimate,0
+"Hey, are we still on for lunch tomorrow at 1pm? Let me know if that works for you.",legitimate,0
+Thanks for signing up for our newsletter! You can update your preferences anytime from your account settings.,legitimate,0
+Your ride is arriving in 3 minutes. Look for a blue sedan near the main entrance.,legitimate,0
+"Congratulations! You have won a $1,000 Instagram gift card. Claim your prize before it expires by clicking 192.168.77.10/login and entering your card number to cover a small shipping fee.",phishing_email,1
+Your ride is arriving in 3 minutes. Look for a blue sedan near the main entrance.,legitimate,0
+"Hello dear, I am a soldier overseas and need help transferring $2,000,000 inheritance. Share your account details and I will reward you generously: amaz0n-support.net",social_scam,1
+"I've been thinking about you all day. I need $800 to cover an emergency, can you wire it to this account? I'll pay you back double next week: 192.168.77.10/login",social_scam,1
+"Congratulations! You have won a $1,000 Facebook gift card. Claim your prize before it expires by clicking amaz0n-support.net and entering your card number to cover a small shipping fee.",phishing_email,1
+Your subscription renews on the 14th. No action is needed unless you'd like to make changes.,legitimate,0
+FINAL WARNING: Unpaid toll of $9.75. Pay now to avoid late fees and DMV report: amaz0n-support.net,smishing,1
+"Congrats! You've won a free iPhone 15 from USPS. Claim now, offer expires today: paypa1-secure.com",smishing,1
+FINAL WARNING: Unpaid toll of $9.75. Pay now to avoid late fees and DMV report: paypa1-secure.com,smishing,1
+Your one-time password is required to confirm a large withdrawal. Enter your OTP here: chase-secure.online,smishing,1
+You have a pending refund of $49. Click to claim before it expires: netfliix-billing.com,smishing,1
+"You've been pre-approved for a $10,000 loan with 0% interest! No credit check needed. Apply now and provide your SSN here: verify-appleid.work",social_scam,1
+You have been selected to receive a tax refund of $2500 from Wells Fargo. Submit your bank details at paypa1-secure.com within 3 days to claim your refund.,phishing_email,1
+Delivery attempt failed. Reschedule your Chase Bank package here (small fee applies): irs-refund-claim.gq,smishing,1
+Here's the shared doc we discussed: https://mail.google.com,legitimate,0
+"the IRS: Your card ending 4432 was charged $1200. If this wasn't you, verify now: paypa1-secure.com",smishing,1
+Thanks for your payment of $45.00 for this month's electricity bill. Your account is up to date.,legitimate,0
+"Hi team, attaching the meeting notes from today's stand-up. Let me know if I missed anything.",legitimate,0
+Class is moved to room 204 for tomorrow's lecture. See you there.,legitimate,0
+"Our repo's CI just passed, see the build log here: https://www.linkedin.com/feed",legitimate,0
+"Work from home job: Earn $300/day, no experience needed! Just pay a $50 registration fee at bit.ly/3xVerify to start immediately.",social_scam,1
+Your Chase Bank payment of $249.99 could not be processed. Update your billing information within 12 hours at netfliix-billing.com to avoid service interruption and late penalties.,phishing_email,1
+Your order #60328 has shipped and is expected to arrive on Thursday. Track it anytime in your account.,legitimate,0
+Delivery attempt failed. Reschedule your PayPal package here (small fee applies): fedex-redelivery.cam,smishing,1
+"Congratulations! You have won a $1,000 Chase Bank gift card. Claim your prize before it expires by clicking verify-appleid.work and entering your card number to cover a small shipping fee.",phishing_email,1
+This is Microsoft Security. Your account will be locked unless you verify your SSN and date of birth at bit.ly/3xVerify immediately. Failure to respond will result in legal action.,phishing_email,1
+"Work from home job: Earn $300/day, no experience needed! Just pay a $50 registration fee at usps-tracking.info to start immediately.",social_scam,1
+"Hi, just following up on the proposal I sent last week - happy to jump on a call if useful.",legitimate,0
+Your prescription refill is ready for pickup at the pharmacy.,legitimate,0
+"Mom, I landed safely! Will call you once I get to the hotel. Love you.",legitimate,0
+Your flight AA1234 departs at 6:45am from Gate B12. Check in online to save time at the airport.,legitimate,0
+FINAL WARNING: Unpaid toll of $9.75. Pay now to avoid late fees and DMV report: verify-appleid.work,smishing,1
+"Hi, I'm a recruiter for Bank of America. We loved your profile! Start earning $500/day working from home, just send your bank details to get set up: bankofamerica.login-alert.ru",social_scam,1
+"Hi, I'm a recruiter for DHL. We loved your profile! Start earning $500/day working from home, just send your bank details to get set up: verify-appleid.work",social_scam,1
+Thanks for signing up for our newsletter! You can update your preferences anytime from your account settings.,legitimate,0
+"Hello dear, I am a soldier overseas and need help transferring $2,000,000 inheritance. Share your account details and I will reward you generously: netfliix-billing.com",social_scam,1
+Reminder: your dentist appointment is scheduled for Monday at 10:30am. Reply CONFIRM or call to reschedule.,legitimate,0
+This is LinkedIn Security. Your account will be locked unless you verify your SSN and date of birth at fedex-redelivery.cam immediately. Failure to respond will result in legal action.,phishing_email,1
+You can view the calendar invite here: https://www.amazon.com/orders,legitimate,0
+Reminder: your dentist appointment is scheduled for Monday at 10:30am. Reply CONFIRM or call to reschedule.,legitimate,0
+"Congrats! You've won a free iPhone 15 from Wells Fargo. Claim now, offer expires today: 192.168.77.10/login",smishing,1
+Your ride is arriving in 3 minutes. Look for a blue sedan near the main entrance.,legitimate,0
+"Our repo's CI just passed, see the build log here: https://mail.google.com",legitimate,0
+"URGENT: We detected a login attempt to your Facebook account from a new device. If this wasn't you, confirm your password and security details now at account-update.xyz to avoid suspension.",phishing_email,1
+Here's the recipe I mentioned - let me know how it turns out if you try it!,legitimate,0
+Final notice from USPS: An invoice #94012 for $999 is overdue. Pay now at irs-refund-claim.gq to avoid penalties and referral to collections.,phishing_email,1
+"You've been pre-approved for a $10,000 loan with 0% interest! No credit check needed. Apply now and provide your SSN here: paypa1-secure.com",social_scam,1
+"Dear Customer, your Bank of America account has been suspended due to unusual activity. Verify your identity immediately at paypa1-secure.com or your account will be permanently closed within 24 hours.",phishing_email,1
+"Congrats! You've won a free iPhone 15 from Wells Fargo. Claim now, offer expires today: amaz0n-support.net",smishing,1
+Coinbase Alert: Your package could not be delivered due to an incomplete address. Reschedule delivery and pay a small redelivery fee at fedex-redelivery.cam within 48 hours.,phishing_email,1
+Your bank account will be frozen due to unusual activity. Verify your PIN immediately: amaz0n-support.net,smishing,1
+Your monthly newsletter is ready to read: https://www.linkedin.com/feed,legitimate,0
+"The library book you reserved is ready for pickup, please collect it within 5 days.",legitimate,0
+"Your feedback on the last sprint was really helpful, thanks for taking the time.",legitimate,0
+This is Wells Fargo Security. Your account will be locked unless you verify your SSN and date of birth at tinyurl.com/acct-verify immediately. Failure to respond will result in legal action.,phishing_email,1
+"Congrats! You've won a free iPhone 15 from Chase Bank. Claim now, offer expires today: account-update.xyz",smishing,1
+Your flight AA1234 departs at 6:45am from Gate B12. Check in online to save time at the airport.,legitimate,0
+"You've been pre-approved for a $10,000 loan with 0% interest! No credit check needed. Apply now and provide your SSN here: tinyurl.com/acct-verify",social_scam,1
+"Work from home job: Earn $300/day, no experience needed! Just pay a $50 registration fee at account-update.xyz to start immediately.",social_scam,1
+Can you send over the slides before the review call at 3pm?,legitimate,0
+"Hi, I'm a recruiter for PayPal. We loved your profile! Start earning $500/day working from home, just send your bank details to get set up: amaz0n-support.net",social_scam,1
+Your monthly newsletter is ready to read: https://zoom.us/j/1234567,legitimate,0
+"Hi, just following up on the proposal I sent last week - happy to jump on a call if useful.",legitimate,0
+DHL Alert: Your package could not be delivered due to an incomplete address. Reschedule delivery and pay a small redelivery fee at secure-verify-login.top within 48 hours.,phishing_email,1
+Class is moved to room 204 for tomorrow's lecture. See you there.,legitimate,0
+"Reminder that our book club meets this Thursday at 7pm, same as usual.",legitimate,0
+"Hi, just following up on the proposal I sent last week - happy to jump on a call if useful.",legitimate,0
+Your Amazon account has been locked. Verify your identity within 24 hrs: usps-tracking.info,smishing,1
+"Your Wells Fargo account shows suspicious sign-in activity from a foreign IP address. Act now and verify your account at account-update.xyz, or it will be deactivated tonight.",phishing_email,1
+Thanks for your payment of $45.00 for this month's electricity bill. Your account is up to date.,legitimate,0
+Final notice from Netflix: An invoice #60019 for $2500 is overdue. Pay now at bankofamerica.login-alert.ru to avoid penalties and referral to collections.,phishing_email,1
+You have been selected to receive a tax refund of $2500 from Coinbase. Submit your bank details at paypa1-secure.com within 3 days to claim your refund.,phishing_email,1
+"PayPal: Your card ending 4432 was charged $1200. If this wasn't you, verify now: confirm-billing.click",smishing,1
+The report you requested is attached. Let me know if the numbers for Q3 look right.,legitimate,0
+USPS: Your package is on hold due to unpaid customs fee of $2.99. Pay here: tinyurl.com/acct-verify,smishing,1
+Your one-time password is required to confirm a large withdrawal. Enter your OTP here: verify-appleid.work,smishing,1
+Your flight AA1234 departs at 6:45am from Gate B12. Check in online to save time at the airport.,legitimate,0
+Just checking in - how did the interview go? Would love to hear how it went.,legitimate,0
+ALERT: Unusual sign-in detected on your account. Confirm it's you or account will be suspended: amaz0n-support.net,smishing,1
+"Investment opportunity: Turn $200 into $5,000 in one week with our exclusive crypto trading bot. Limited spots, deposit now: bankofamerica.login-alert.ru",social_scam,1
+"Mom, I landed safely! Will call you once I get to the hotel. Love you.",legitimate,0
+FINAL WARNING: Unpaid toll of $9.75. Pay now to avoid late fees and DMV report: irs-refund-claim.gq,smishing,1
+ALERT: Unusual sign-in detected on your account. Confirm it's you or account will be suspended: account-update.xyz,smishing,1
+"You've been pre-approved for a $10,000 loan with 0% interest! No credit check needed. Apply now and provide your SSN here: netfliix-billing.com",social_scam,1
+"Investment opportunity: Turn $200 into $5,000 in one week with our exclusive crypto trading bot. Limited spots, deposit now: amaz0n-support.net",social_scam,1
+Can you send over the slides before the review call at 3pm?,legitimate,0
+Your bank account will be frozen due to unusual activity. Verify your PIN immediately: secure-verify-login.top,smishing,1
+"Hello dear, I am a soldier overseas and need help transferring $2,000,000 inheritance. Share your account details and I will reward you generously: bit.ly/3xVerify",social_scam,1
+Reminder: your dentist appointment is scheduled for Monday at 10:30am. Reply CONFIRM or call to reschedule.,legitimate,0
+"Your feedback on the last sprint was really helpful, thanks for taking the time.",legitimate,0
+"Chase Bank: Your card ending 4432 was charged $2500. If this wasn't you, verify now: bankofamerica.login-alert.ru",smishing,1
+You can view the calendar invite here: https://www.amazon.com/orders,legitimate,0
+Delivery attempt failed. Reschedule your Bank of America package here (small fee applies): bit.ly/3xVerify,smishing,1
+You have been selected to receive a tax refund of $99 from PayPal. Submit your bank details at bankofamerica.login-alert.ru within 3 days to claim your refund.,phishing_email,1
+"Congrats! You've won a free iPhone 15 from Netflix. Claim now, offer expires today: bankofamerica.login-alert.ru",smishing,1
+Your Bank of America payment of $249.99 could not be processed. Update your billing information within 12 hours at bit.ly/3xVerify to avoid service interruption and late penalties.,phishing_email,1
+"Dear Customer, your Bank of America account has been suspended due to unusual activity. Verify your identity immediately at tinyurl.com/acct-verify or your account will be permanently closed within 24 hours.",phishing_email,1
+Great seeing you at the conference! Let's grab coffee sometime next month.,legitimate,0
+Your one-time password is required to confirm a large withdrawal. Enter your OTP here: bankofamerica.login-alert.ru,smishing,1
+"Your Wi-Fi router firmware has been updated automatically, no action needed.",legitimate,0
+Your monthly statement is now available to view in your online banking portal.,legitimate,0
+"Reminder that our book club meets this Thursday at 7pm, same as usual.",legitimate,0
+"Hi, I'm a recruiter for Apple. We loved your profile! Start earning $500/day working from home, just send your bank details to get set up: bankofamerica.login-alert.ru",social_scam,1
+Thanks for signing up for our newsletter! You can update your preferences anytime from your account settings.,legitimate,0
+Thanks for your payment of $45.00 for this month's electricity bill. Your account is up to date.,legitimate,0
+"Your Wi-Fi router firmware has been updated automatically, no action needed.",legitimate,0
+Here's the recipe I mentioned - let me know how it turns out if you try it!,legitimate,0
+"Reminder that our book club meets this Thursday at 7pm, same as usual.",legitimate,0
+Delivery attempt failed. Reschedule your Apple package here (small fee applies): verify-appleid.work,smishing,1
+Your monthly statement is now available to view in your online banking portal.,legitimate,0
+You can view the calendar invite here: https://mail.google.com,legitimate,0
+You can view the calendar invite here: https://www.chase.com/online,legitimate,0
+"Your Wells Fargo account shows suspicious sign-in activity from a foreign IP address. Act now and verify your account at secure-verify-login.top, or it will be deactivated tonight.",phishing_email,1
+"You've been pre-approved for a $10,000 loan with 0% interest! No credit check needed. Apply now and provide your SSN here: bit.ly/3xVerify",social_scam,1
+"Dear Customer, your LinkedIn account has been suspended due to unusual activity. Verify your identity immediately at secure-verify-login.top or your account will be permanently closed within 24 hours.",phishing_email,1
+"Reminder that our book club meets this Thursday at 7pm, same as usual.",legitimate,0
+USPS: Your package is on hold due to unpaid customs fee of $2.99. Pay here: secure-verify-login.top,smishing,1
+Your flight AA1234 departs at 6:45am from Gate B12. Check in online to save time at the airport.,legitimate,0
+Thanks for signing up for our newsletter! You can update your preferences anytime from your account settings.,legitimate,0
+"Work from home job: Earn $300/day, no experience needed! Just pay a $50 registration fee at paypa1-secure.com to start immediately.",social_scam,1
+Your prescription refill is ready for pickup at the pharmacy.,legitimate,0
+USPS: Your package is on hold due to unpaid customs fee of $2.99. Pay here: secure-verify-login.top,smishing,1
+ALERT: Unusual sign-in detected on your account. Confirm it's you or account will be suspended: fedex-redelivery.cam,smishing,1
+USPS: Your package is on hold due to unpaid customs fee of $2.99. Pay here: amaz0n-support.net,smishing,1
+Great seeing you at the conference! Let's grab coffee sometime next month.,legitimate,0
+"Your feedback on the last sprint was really helpful, thanks for taking the time.",legitimate,0
+The plumber will arrive between 9-11am tomorrow to fix the leak.,legitimate,0
+Here's the shared doc we discussed: https://calendar.google.com/event,legitimate,0
+Apple Alert: Your package could not be delivered due to an incomplete address. Reschedule delivery and pay a small redelivery fee at paypa1-secure.com within 48 hours.,phishing_email,1
+Your monthly newsletter is ready to read: https://www.chase.com/online,legitimate,0
+"Happy birthday! Hope you have a wonderful day, let's catch up this weekend.",legitimate,0
+"I've been thinking about you all day. I need $800 to cover an emergency, can you wire it to this account? I'll pay you back double next week: verify-appleid.work",social_scam,1
+"Congratulations! You have won a $1,000 Netflix gift card. Claim your prize before it expires by clicking chase-secure.online and entering your card number to cover a small shipping fee.",phishing_email,1
+"Hi team, attaching the meeting notes from today's stand-up. Let me know if I missed anything.",legitimate,0
+"Hi, just following up on the proposal I sent last week - happy to jump on a call if useful.",legitimate,0
+Can you send over the slides before the review call at 3pm?,legitimate,0
+"Check out this article, thought you'd find it interesting: https://github.com/settings",legitimate,0
+Class is moved to room 204 for tomorrow's lecture. See you there.,legitimate,0
+"Investment opportunity: Turn $200 into $5,000 in one week with our exclusive crypto trading bot. Limited spots, deposit now: paypa1-secure.com",social_scam,1
+FedEx Alert: Your package could not be delivered due to an incomplete address. Reschedule delivery and pay a small redelivery fee at bankofamerica.login-alert.ru within 48 hours.,phishing_email,1
+"Hi, I'm a recruiter for Bank of America. We loved your profile! Start earning $500/day working from home, just send your bank details to get set up: secure-verify-login.top",social_scam,1
+Your order #29342 has shipped and is expected to arrive on Thursday. Track it anytime in your account.,legitimate,0
+"You've been pre-approved for a $10,000 loan with 0% interest! No credit check needed. Apply now and provide your SSN here: bit.ly/3xVerify",social_scam,1
+Your prescription refill is ready for pickup at the pharmacy.,legitimate,0
+Can you send over the slides before the review call at 3pm?,legitimate,0
+Just checking in - how did the interview go? Would love to hear how it went.,legitimate,0
+"Investment opportunity: Turn $200 into $5,000 in one week with our exclusive crypto trading bot. Limited spots, deposit now: bit.ly/3xVerify",social_scam,1
+Here's the recipe I mentioned - let me know how it turns out if you try it!,legitimate,0
+Your bank account will be frozen due to unusual activity. Verify your PIN immediately: tinyurl.com/acct-verify,smishing,1
+Your prescription refill is ready for pickup at the pharmacy.,legitimate,0
+Your Microsoft account has been locked. Verify your identity within 24 hrs: bit.ly/3xVerify,smishing,1
+Thanks for your payment of $45.00 for this month's electricity bill. Your account is up to date.,legitimate,0
+Your monthly statement is now available to view in your online banking portal.,legitimate,0
+Your prescription refill is ready for pickup at the pharmacy.,legitimate,0
+You have been selected to receive a tax refund of $2500 from Instagram. Submit your bank details at bankofamerica.login-alert.ru within 3 days to claim your refund.,phishing_email,1
+Just checking in - how did the interview go? Would love to hear how it went.,legitimate,0
+The report you requested is attached. Let me know if the numbers for Q3 look right.,legitimate,0
+"URGENT: We detected a login attempt to your Amazon account from a new device. If this wasn't you, confirm your password and security details now at irs-refund-claim.gq to avoid suspension.",phishing_email,1
+"Hi team, attaching the meeting notes from today's stand-up. Let me know if I missed anything.",legitimate,0
+"Your Wi-Fi router firmware has been updated automatically, no action needed.",legitimate,0
+Final notice from Apple: An invoice #91959 for $500 is overdue. Pay now at chase-secure.online to avoid penalties and referral to collections.,phishing_email,1
+"Mom, I landed safely! Will call you once I get to the hotel. Love you.",legitimate,0
+"Happy birthday! Hope you have a wonderful day, let's catch up this weekend.",legitimate,0
+"Your feedback on the last sprint was really helpful, thanks for taking the time.",legitimate,0
+Thanks for signing up for our newsletter! You can update your preferences anytime from your account settings.,legitimate,0
+Your PayPal payment of $249.99 could not be processed. Update your billing information within 12 hours at irs-refund-claim.gq to avoid service interruption and late penalties.,phishing_email,1
+You can view the calendar invite here: https://github.com/settings,legitimate,0
+"Netflix: Your card ending 4432 was charged $249. If this wasn't you, verify now: fedex-redelivery.cam",smishing,1
+"Work from home job: Earn $300/day, no experience needed! Just pay a $50 registration fee at secure-verify-login.top to start immediately.",social_scam,1
+"Your the IRS account shows suspicious sign-in activity from a foreign IP address. Act now and verify your account at paypa1-secure.com, or it will be deactivated tonight.",phishing_email,1
+"Hi, I'm a recruiter for LinkedIn. We loved your profile! Start earning $500/day working from home, just send your bank details to get set up: tinyurl.com/acct-verify",social_scam,1
+"Dear valued customer, we noticed a problem with your Amazon billing details. Please confirm your account information at account-update.xyz within 24 hours or access will be restricted.",phishing_email,1
+You have a pending refund of $999. Click to claim before it expires: amaz0n-support.net,smishing,1
+Great seeing you at the conference! Let's grab coffee sometime next month.,legitimate,0
+"Hi, just following up on the proposal I sent last week - happy to jump on a call if useful.",legitimate,0
+"Check out this article, thought you'd find it interesting: https://github.com/settings",legitimate,0
+Your monthly newsletter is ready to read: https://www.irs.gov/refunds,legitimate,0
+"Congratulations! You have won a $1,000 PayPal gift card. Claim your prize before it expires by clicking bit.ly/3xVerify and entering your card number to cover a small shipping fee.",phishing_email,1
+"Our repo's CI just passed, see the build log here: https://www.linkedin.com/feed",legitimate,0
+You have been selected to receive a tax refund of $99 from PayPal. Submit your bank details at bit.ly/3xVerify within 3 days to claim your refund.,phishing_email,1
+"Hey, are we still on for lunch tomorrow at 1pm? Let me know if that works for you.",legitimate,0
+Your Netflix account has been locked. Verify your identity within 24 hrs: fedex-redelivery.cam,smishing,1
+You have been selected to receive a tax refund of $500 from Microsoft. Submit your bank details at bankofamerica.login-alert.ru within 3 days to claim your refund.,phishing_email,1

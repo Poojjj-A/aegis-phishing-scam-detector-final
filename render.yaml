@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: aegis-phishing-detector
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python generate_dataset.py && python train_model.py"
+    startCommand: "gunicorn -b 0.0.0.0:$PORT app.main:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
