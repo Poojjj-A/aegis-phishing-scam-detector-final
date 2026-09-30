@@ -1,11 +1,28 @@
 # Aegis — AI-Powered Phishing & Scam Message Detector
+> **Know if a message is trying to scam you — before you click anything.**
 
-Aegis analyzes email, SMS, and social-media/DM text — including any embedded URLs — and returns a real-time **0–100 risk score** with a fully human-readable explanation of *why*: which phrases triggered concern, which links look suspicious and why, and what a machine learning model independently picked up on.
+Aegis is an AI-powered phishing and scam detection system that analyzes **emails, SMS messages, social-media messages, DMs, and embedded URLs**. It combines machine learning, text analysis, URL analysis, and security heuristics to provide a real-time **0–100 risk score** along with a clear, human-readable explanation of the suspicious patterns it detects.
+
+### 🔍 Two Ways to Analyze
+
+Aegis supports both **Single Message Analysis** and **Conversation Thread Analysis**.
+
+- **Single Message:** Analyze an individual email, SMS, DM, or suspicious message and receive its risk score, detected red flags, and explanation.
+- **Conversation Thread:** Analyze an entire conversation message-by-message to identify **risk escalation, manipulation patterns, increasing financial pressure, and scam progression** that may not be obvious from a single message.
+
+### 🚨 Already Been Scammed?
+
+Aegis is also designed to help **after a scam has already happened**. If you have clicked a suspicious link, shared sensitive information, or lost money, the application provides an **"Already Been Scammed?"** section with immediate safety guidance and a direct link to India's official **National Cyber Crime Reporting Portal**.
+
+👉 **Report Cyber Crime:** https://www.cybercrime.gov.in/
+
+📞 **Cyber Crime Helpline:** **1930**
+
+Users are encouraged to report financial fraud and other cybercrime **as soon as possible**, while preserving screenshots, transaction details, sender information, and other evidence.
+
+> **Aegis doesn't just help you detect a scam — it helps you understand the risk, recognize how the scam is developing, and know what to do next.**
 
 Built for the **NLP — AI-Powered Phishing & Scam Message Detector** challenge.
-
-**Live demo:** _add your deployed link here after step 3 below_
-**Repo:** _add your GitHub link here_
 
 ---
 
@@ -151,7 +168,7 @@ Run the smoke tests: `pytest tests/` (or `python tests/test_examples.py`).
 
 ---
 
-## Deploying (for the submission's bonus points)
+## Deploying 
 
 **Render (recommended, free tier, `render.yaml` included):**
 1. Push this repo to GitHub (public).
